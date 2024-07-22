@@ -1,0 +1,27 @@
+//vd Với n = 24, kết quả factorSum(n) = 5.
+24 -> (2 + 2 + 2 + 3) = 9 -> (3 + 3) = 6 -> (2 + 3) = 5 -> 5.
+Vì vậy kết quả trong trường hợp n = 24 là 5.
+
+
+int factorSum(int n) {
+    while(n != solve(n))
+    {
+        n = solve(n);
+    }
+    return n;
+}
+
+int solve(int n)
+{
+    int k = 2, sum = 0;
+    while(n > 1)
+    {
+        while(n % k == 0)
+        {
+            sum += k;
+            n /= k;
+        }
+        k++;
+    }
+    return sum;
+}
