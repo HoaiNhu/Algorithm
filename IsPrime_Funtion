@@ -22,3 +22,15 @@ bool isPrime(int n)
             return false;
     return true;
 }
+--------------------------------------
+//Code Python
+def isPrime(n):
+  def sqrt(num: int) -> float:
+return num ** 0.5
+ 
+  if sqrt(n).is_integer(): return False
+
+  for i in range(2, n if n < 10 else 10):
+if n % i == 0: return False
+ 
+return True
