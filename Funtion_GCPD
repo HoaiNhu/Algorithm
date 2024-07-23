@@ -1,7 +1,52 @@
-GCPD (Greatest Common Prime Divisor) được định nghĩa là số nguyên tố lớn nhất là ước của các số nguyên dương cho trước. Nhiệm vụ của bạn là tìm GCPD của hai số nguyên a và b.
+GCPD (Greatest Common Prime Divisor) được định nghĩa là số nguyên tố lớn nhất là ước của các số nguyên dương cho trước. 
+Nhiệm vụ của bạn là tìm GCPD của hai số nguyên a và b.
 
 Ví dụ
 
 Với a = 12 và b = 18, đầu ra là greatestCommonPrimeDivisor(a, b) = 3;
 Với a = 12 và b = 13, đầu ra là greatestCommonPrimeDivisor(a, b) = -1.
 
+--------------------------------------------------------
+//Hàm 1
+bool isPrime(int n)
+{
+    if(n <= 1) return false;
+    else
+    {
+        for(int i = 2; i < n; i++)
+        {
+            if(n % i == 0)
+                return false;
+        }
+    }
+    return true;
+}
+
+int min(int a, int b)
+{
+    if(a > b) return b;
+    else return a;
+}
+
+int greatestCommonPrimeDivisor(int a, int b)
+{
+    vector<int> c;
+    for(int i = min(a,b); i >= 2; i++)
+    {
+        if(a % i == 0 && b % i ==0)
+        {
+            c.push_back(i);
+        }
+    }
+
+    int n = c.size();
+    int max = -1;
+    for(int i = 0; i < n; i++)
+    {
+        if(isPrime(c[i]) && c[i] > max)
+        {
+            max = c[i];
+        }
+    }
+    return max;
+}
