@@ -1,0 +1,48 @@
+//Đém tần số xuất hiện
+import java.util.Collections;
+import java.util.Scanner;
+import java.util.Vector;
+
+public class TestCode {
+public static void main(String[] args) {
+Scanner cin = new Scanner(System.in);
+ 
+int n;
+// Nhập số phần tử của dãy
+n = cin.nextInt();
+int[] a = new int[n];
+Vector<Integer> a2 = new Vector<>();
+int temp=0;
+
+
+// Nhập các phần tử của dãy
+for (int i = 0; i < n; i++) {
+a[i] = cin.nextInt();
+}
+ 
+for (int i = 0; i < n; i++) {
+boolean bool = false;
+for (int j : a2) {
+if (a[i] == j) {
+bool = true;
+break;
+}
+}
+if (!bool) {
+a2.add(a[i]);
+}
+}
+Collections.sort(a2);
+ 
+for(int j : a2 ){
+temp=0;
+for (int i = 0; i < n; i++) {
+if (j == a[i]){
+temp++;
+}
+}
+System.out.print(j+" - "+temp+"; ");
+}
+}
+}
+
